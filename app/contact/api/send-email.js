@@ -1,16 +1,25 @@
-// app/contact/api/send-email.js
-import sendgrid from '@sendgrid/mail';
-
-sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
+// pages/api/send-email.js
+import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
         const { firstname, lastname, email, phone, message } = req.body;
 
-        const msg = {
-            to: 'tchokorerene@gmail.com',
-            from: 'tchokomirenemarcellin@gmail.com', // Utilisez l'adresse email vérifiée dans SendGrid
-            replyTo: email, // Utilisez l'email de l'utilisateur comme replyTo
+        // Configurer le transporteur SMTP
+        let transporter = nodemailer.createTransport({
+            host: 'smtp-relay.brevo.com',
+            port: 587,
+            secure: false, // true pour le port 465, false pour les autres ports
+            auth: {
+                user: '79a959001@smtp-brevo.com', // remplacez par votre login SMTP Brevo
+                pass: 'WVwLbZXsG6pS4Omh', // remplacez par votre mot de passe SMTP Brevo
+            },
+        });
+
+        // Options de l'email
+        let mailOptions = {
+            from: '"René-Marcellin" <79a959001@smtp-brevo.com>', // adresse email vérifiée comme expéditeur
+            to: 'tchokorerene@gmail.com', // liste des destinataires
             subject: `Message de ${firstname} ${lastname}`,
             text: `
         Prénom: ${firstname}
@@ -21,8 +30,9 @@ export default async function handler(req, res) {
       `,
         };
 
+        // Envoyer l'email
         try {
-            await sendgrid.send(msg);
+            await transporter.sendMail(mailOptions);
             res.status(200).json({ message: 'Email sent successfully' });
         } catch (error) {
             console.error(error);

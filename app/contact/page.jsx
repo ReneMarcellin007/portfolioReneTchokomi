@@ -1,4 +1,5 @@
-﻿"use client";
+﻿// Formulaire de contact avec envoi vers l'API
+"use client";
 
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
@@ -55,7 +56,7 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const res = await fetch('/contact/api/send-email', {
+        const res = await fetch('/api/send-email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
