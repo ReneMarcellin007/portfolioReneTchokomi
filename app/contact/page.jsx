@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 
@@ -14,8 +13,8 @@ const info = [
     { icon: <FaMapMarkerAlt />, title: "Adresse", description: "468 Rue Horner, Granby, Quebec" },
 ];
 
-const Contact = () => {
-    const [formData, setFormData] = useState({ firstname: '', lastname: '', email: '', phone: '', message: '', subject: '' });
+const ContactForm = () => {
+    const [formData, setFormData] = useState({ firstname: '', lastname: '', email: '', phone: '', subject: '', message: '' });
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -80,4 +79,4 @@ const Contact = () => {
     );
 };
 
-export default Contact;
+export default ContactForm;
