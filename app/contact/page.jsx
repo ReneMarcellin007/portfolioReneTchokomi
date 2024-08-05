@@ -15,7 +15,7 @@ const info = [
 ];
 
 const Contact = () => {
-    const [formData, setFormData] = useState({ firstname: '', lastname: '', email: '', phone: '', message: '' });
+    const [formData, setFormData] = useState({ firstname: '', lastname: '', email: '', phone: '', message: '', subject: '' });
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -23,16 +23,18 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const res = await fetch('/api/send-email', {
+        const response = await fetch('/api/contact', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
         });
 
-        if (res.ok) {
-            alert('Email envoye');
+        const result = await response.json();
+
+        if (result.success) {
+            alert('Message sent successfully');
         } else {
-            alert('Erreur envoi email');
+            alert('Failed to send message');
         }
     };
 
@@ -51,20 +53,8 @@ const Contact = () => {
                                 <Input type="text" name="lastname" placeholder="Nom" onChange={handleChange} required />
                                 <Input type="email" name="email" placeholder="Mail" onChange={handleChange} required />
                                 <Input type="text" name="phone" placeholder="Téléphone" onChange={handleChange} required />
+                                <Input type="text" name="subject" placeholder="Sujet" onChange={handleChange} required />
                             </div>
-                            <Select>
-                                <SelectTrigger className="w-full">
-                                    <SelectValue placeholder="Choisissez un service" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    <SelectGroup>
-                                        <SelectLabel>Choisissez un service</SelectLabel>
-                                        <SelectItem value="web">Développement Web</SelectItem>
-                                        <SelectItem value="uiux">UI/UX Design</SelectItem>
-                                        <SelectItem value="logo">Logo Design</SelectItem>
-                                    </SelectGroup>
-                                </SelectContent>
-                            </Select>
                             <Textarea className="h-[200px]" name="message" placeholder="Écrivez votre message ici." onChange={handleChange} required />
                             <Button type="submit" size="md" className="max-w-60">Envoyer le message</Button>
                         </form>
