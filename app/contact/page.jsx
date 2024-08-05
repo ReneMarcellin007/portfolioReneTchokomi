@@ -1,5 +1,4 @@
-﻿// app/contact/page.jsx
-"use client";
+﻿"use client";
 
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
@@ -23,10 +22,15 @@ const ContactForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch('/api/contact', {
+        const response = await fetch('/api/send-email', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData),
+            body: JSON.stringify({
+                to: 'tchokorerene@gmail.com',
+                subject: formData.subject,
+                text: `First Name: ${formData.firstname}\nLast Name: ${formData.lastname}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`,
+                html: `<p>First Name: ${formData.firstname}</p><p>Last Name: ${formData.lastname}</p><p>Email: ${formData.email}</p><p>Phone: ${formData.phone}</p><p>Message: ${formData.message}</p>`
+            }),
         });
 
         const result = await response.json();
