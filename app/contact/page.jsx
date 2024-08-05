@@ -36,9 +36,9 @@ const ContactForm = () => {
         const result = await response.json();
 
         if (result.success) {
-            alert('Message sent successfully');
+            alert('Message envoyé avec succès');
         } else {
-            alert('Failed to send message');
+            alert('Échec de l\'envoi du message');
         }
     };
 
