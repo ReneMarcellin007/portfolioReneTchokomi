@@ -1,36 +1,16 @@
-import { sendEmail } from "../../config/nodemailer";
-import Cors from 'cors';
-
-const cors = Cors({
-    methods: ['POST', 'HEAD'],
-});
-
-function runMiddleware(req, res, fn) {
-    return new Promise((resolve, reject) => {
-        fn(req, res, (result) => {
-            if (result instanceof Error) {
-                return reject(result);
-            }
-            return resolve(result);
-        });
-    });
-}
+import sendEmail from '../../lib/mail';
 
 export default async function handler(req, res) {
-    await runMiddleware(req, res, cors);
-
     if (req.method === 'POST') {
-        const { to, subject, text, html } = req.body;
+        const { to, subject, text } = req.body;
 
         try {
-            await sendEmail({ to, subject, text, html });
-            res.status(200).json({ success: true, message: 'Email envoyé avec succès' });
+            const result = await sendEmail(to, subject, text);
+            res.status(200).json({ status: 'success', result });
         } catch (error) {
-            console.error('Erreur d\'email:', error);
-            res.status(500).json({ success: false, error: 'Échec de l\'envoi de l\'email', details: error.message });
+            res.status(500).json({ status: 'error', error: error.message });
         }
     } else {
-        res.setHeader('Allow', ['POST']);
-        res.status(405).json({ success: false, error: `Méthode ${req.method} non autorisée` });
+        res.status(405).json({ message: 'Method not allowed' });
     }
 }
