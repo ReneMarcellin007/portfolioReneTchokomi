@@ -22,26 +22,24 @@ const ContactForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch('/api/send-email', {
+        const response = await fetch('pages/api/send-email', {  // Notez le chemin ici
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 to: 'tchokorerene@gmail.com',
                 subject: formData.subject,
-                text: `First Name: ${formData.firstname}\nLast Name: ${formData.lastname}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`,
-                html: `<p>First Name: ${formData.firstname}</p><p>Last Name: ${formData.lastname}</p><p>Email: ${formData.email}</p><p>Phone: ${formData.phone}</p><p>Message: ${formData.message}</p>`
-            }),
+                text: `First Name: ${formData.firstname}\nLast Name: ${formData.lastname}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`
+            })
         });
 
         const result = await response.json();
 
-        if (result.success) {
+        if (response.ok) {
             alert('Message envoyé avec succès');
         } else {
             alert('Échec de l\'envoi du message');
         }
     };
-
 
     return (
         <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 2.4, duration: 0.4, ease: "easeIn" } }} className="py-6">
