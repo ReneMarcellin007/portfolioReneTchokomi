@@ -15,21 +15,21 @@ const services = [
         num: "02",
         title: "UI/UX Design",
         description:
-            "Conception d&apos;interfaces utilisateur attrayantes et intuitives. Optimisation de l&apos;expérience utilisateur à travers des prototypes interactifs et des tests utilisateurs approfondis.",
+            "Conception d'interface utilisateur attrayante et intuitive. Optimisation de l'expérience utilisateur à travers des prototypes interactifs et des tests utilisateurs approfondis.",
         href: "",
     },
     {
         num: "03",
         title: "Logo Design",
         description:
-            "Création de logos uniques et mémorables pour renforcer l&apos;identité de votre marque. Utilisation d&apos;outils tels qu&apos;Adobe Photoshop et Illustrator pour des designs de haute qualité.",
+            "Création de logos uniques et mémorables pour renforcer l'&apos;'identité de votre marque. Utilisation d'outils tels qu'Adobe Photoshop et Illustrator pour des designs de haute qualité.",
         href: "",
     },
     {
         num: "04",
         title: "Mobile Development",
         description:
-            "Développement d&apos;applications mobiles performantes et user-friendly pour la plateforme Android. Compétences en Java et Kotlin pour créer des applications mobiles innovantes.",
+            "Développement d'applications mobiles performantes et user-friendly pour la plateforme Android. Compétences en Java et Kotlin pour créer des applications mobiles innovantes.",
         href: "",
     },
 ];

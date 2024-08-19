@@ -54,7 +54,7 @@ const experience = {
     icon: "/assets/resume/badge.svg",
     title: "Mon expérience",
     description:
-        "J&apos;ai acquis une solide expérience dans le développement web et la conception UI/UX, en travaillant sur divers projets qui ont renforcé mes compétences techniques et ma capacité à résoudre des problèmes complexes.",
+        "J'ai acquis une solide expérience dans le développement web et la conception UI/UX, en travaillant sur divers projets qui ont renforcé mes compétences techniques et ma capacité à résoudre des problèmes complexes.",
     items: [
         /*{
           company: "Tech Solutions Inc.",
