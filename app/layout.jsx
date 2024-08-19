@@ -1,4 +1,4 @@
-import { JetBrains_Mono } from "next/font/google";
+ï»¿import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 // components
@@ -13,14 +13,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-    title: "Portfolio René Tchokomi",
+    title: "Portfolio RenÃ© Tchokomi",
     description: "Bienvenue sur mon portfolio fait avec Next.js ",
     keywords: ["Next.js", "React", "Transition", "SEO"],
     openGraph: {
-        title: "Portfolio René Tchokomi",
+        title: "Portfolio RenÃ© Tchokomi",
         description: "Apprenez en plus sur moi et mes projets.",
         url: "https://renetchokomi.com",
-        siteName: "Portfolio René Tchokomi",
+        siteName: "Portfolio RenÃ© Tchokomi",
     },
 };
 
