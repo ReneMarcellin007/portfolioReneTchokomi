@@ -21,23 +21,6 @@ export const metadata = {
         description: "Apprenez en plus sur moi et mes projets.",
         url: "https://renetchokomi.com",
         siteName: "Portfolio René Tchokomi",
-        images: [
-            {
-                url: "/assets/photo.png",
-                width: 800,
-                height: 600,
-                alt: "Photo de René Tchokomi",
-            },
-        ],
-        locale: "fr_FR",
-        type: "website",
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: "Portfolio René Tchokomi",
-        description: "Apprenez en plus sur moi et mes projets.",
-        creator: "@moncompte",
-        images: ["/assets/photo.png"],
     },
 };
 
