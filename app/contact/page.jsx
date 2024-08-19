@@ -22,7 +22,7 @@ const ContactForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch('pages/api/send-email', {  // Notez le chemin ici
+        const response = await fetch('/api/send-email', {  // Notez le chemin ici
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
