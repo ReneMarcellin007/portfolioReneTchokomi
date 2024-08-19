@@ -37,7 +37,7 @@ const ContactForm = () => {
         if (response.ok) {
             alert('Message envoyé avec succès');
         } else {
-            alert('Échec de l\'envoi du message');
+            alert('Échec de l&apos;envoi du message');
         }
     };
 

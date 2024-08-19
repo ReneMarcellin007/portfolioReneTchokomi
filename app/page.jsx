@@ -18,7 +18,7 @@ const Home = () => {
                             Salut je suis <br /> <span className="text-accent">René-Marcellin Tchokomi</span>
                         </h1>
                         <p className="max-w-[500px] mb-9 text-white/80">
-                            J'excelle dans la programmation web et les nouvelles technologies.
+                            J&apos;excelle dans la programmation web et les nouvelles technologies.
                             Je suis un amoureux du code depuis tout petit.
                         </p>
                         {/* btn and socials */}
