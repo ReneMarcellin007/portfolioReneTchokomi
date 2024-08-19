@@ -25,7 +25,7 @@ const projects = [
         category: "frontend",
         title: "project 1",
         description:
-            "Création de la boutique Shopify de la communauté Ivoirienne pour la fête de l&apos;indépendance",
+            "Création de la boutique Shopify de la communauté Ivoirienne pour la fête de l'indépendance",
         stack: [{ name: "Html 5" }, { name: "Css 3" }],
         image: "/assets/work/thumb11.png",
         live: "",
@@ -36,7 +36,7 @@ const projects = [
         category: "Société Informatique",
         title: "project 2",
         description:
-            "Création du site web d&apos;une compagnie informatique fictive. Dans le but d&apos;améliorer mes capacités",
+            "Création du site web d'une compagnie informatique fictive. Dans le but d'améliorer mes capacités",
         stack: [{ name: "WordPress" }, { name: "ASP.NET" }, { name: "HTML 5" }],
         image: "/assets/work/thumb12.png",
         live: "https://portfolio-renetchokomi.web.app/",

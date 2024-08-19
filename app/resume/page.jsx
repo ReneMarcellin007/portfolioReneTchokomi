@@ -94,7 +94,7 @@ const education = {
     icon: "/assets/resume/cap.svg",
     title: "Mon éducation",
     description:
-        "J&apos;ai acquis une solide expérience à travers de nombreux projets d&apos;école. De la fabrication d&apos;une voiture commandée à distance, à un drone avec Arduino. J&apos;ai développé le code complet de ces projets. À travers la programmation web depuis le début, j&apos;ai pu acquérir des compétences concrètes.",
+        "J'ai acquis une solide expérience à travers de nombreux projets d'école. De la fabrication d'une voiture commandée à distance, à un drone avec Arduino. J'ai développé le code complet de ces projets. À travers la programmation web depuis le début, j'ai pu acquérir des compétences concrètes.",
     items: [
         /*{
           institution: "Online Course Platform",
@@ -117,7 +117,7 @@ const education = {
           duration: "2019",
         },*/
         {
-            institution: "Cegep de Granby",
+            institution: "Cégep de Granby",
             degree: "DEC Technique Informatique",
             duration: "2021 - 2025",
         },
@@ -133,7 +133,7 @@ const education = {
 const skills = {
     title: "Mes Forces",
     description:
-        "Ma capacité à m&apos;adapter et à apprendre rapidement de nouveaux langages et technologies me permet de rester à jour et d&apos;optimiser mes projets.",
+        "Ma capacité à m'adapter et à apprendre rapidement de nouveaux langages et technologies me permet de rester à jour et d'optimiser mes projets.",
     skillList: [
         {
             icon: <FaHtml5 />,
