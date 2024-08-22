@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 const info = [
     { icon: <FaPhoneAlt />, title: "Téléphone", description: "(450) 775 8561" },
     { icon: <FaEnvelope />, title: "Email", description: "tchokorerene@gmail.com" },
-    { icon: <FaMapMarkerAlt />, title: "Adresse", description: "468 Rue Horner, Granby, Quebec" },
+    { icon: <FaMapMarkerAlt />, title: "Adresse", description: "Granby, Quebec, Canada" },
 ];
 
 const ContactForm = () => {
