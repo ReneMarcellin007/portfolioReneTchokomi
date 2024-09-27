@@ -8,7 +8,7 @@ const services = [
         num: "01",
         title: "Développement Web",
         description:
-            "Développement de sites web robustes et performants utilisant les technologies ASP.NET et JavaScript. Expertise en développement front-end et back-end pour créer des applications web modernes et interactives.",
+        "Développement de sites web robustes et performants utilisant les technologies ASP.NET, JavaScript et Vue js. Expertise en développement front-end et back-end pour créer des applications web modernes et interactives.",
         href: "",
     },
     {
@@ -22,7 +22,7 @@ const services = [
         num: "03",
         title: "Logo Design",
         description:
-            "Création de logos uniques et mémorables pour renforcer l'&apos;'identité de votre marque. Utilisation d'outils tels qu'Adobe Photoshop et Illustrator pour des designs de haute qualité.",
+            "Création de logos uniques et mémorables pour renforcer l'identité de votre marque. Utilisation d'outils tels qu'Adobe Photoshop et Illustrator pour des designs de haute qualité.",
         href: "",
     },
     {
