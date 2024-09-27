@@ -73,7 +73,7 @@ const experience = {
         },
         {
             company: "Cegep de Granby",
-            position: "Tuteur",
+            position: "Tuteur et Assistant de prof",
             duration: "2023 - 2025",
         },
         {
