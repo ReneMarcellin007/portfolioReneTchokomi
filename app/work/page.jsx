@@ -5,8 +5,10 @@ import React, { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/autoplay";
 
-import { BsArrowUpRight, BsGithub } from "react-icons/bs";
+import { BsArrowUpRight, BsGithub, BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
 import {
     Tooltip,
@@ -18,6 +20,8 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
+
+import { Autoplay, Navigation } from 'swiper/modules';
 
 const projects = [
     {
@@ -42,27 +46,48 @@ const projects = [
         live: "https://portfolio-renetchokomi.web.app/",
         github: "https://github.com/ReneMarcellin007/portfolio",
     },
-    /*{
+    {
         num: "03",
-        category: "frontend",
+        category: "Projet d'intégration - Cégep de Granby",
         title: "project 3",
-        description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi.",
-        stack: [{ name: "Next.js" }, { name: "Tailwind.css" }],
-        image: "/assets/work/thumb3.png",
-        live: "",
-        github: "",
-    },*/
+        description: "Projet d'intégration - Cégep de Granby",
+        stack: [ { name: "ASP.NET" }, { name: "Vue.js" }, { name: "Bootstrap" }, { name: "SQL" }, { name: "C#" }],
+        image: "/assets/work/projet_integration/projetintegration_1.png",
+        gallery: [
+            "/assets/work/projet_integration/projetintegration_1.png",
+            "/assets/work/projet_integration/projetintegration_2.png",
+            "/assets/work/projet_integration/projetintegration_3.png",
+            "/assets/work/projet_integration/projetintegration_4.png",
+            "/assets/work/projet_integration/projetintegration_5.png",
+            "/assets/work/projet_integration/projetintegration_6.png",
+            "/assets/work/projet_integration/projetintegration_7.png",
+            "/assets/work/projet_integration/projetintegration_8.png",
+            "/assets/work/projet_integration/projetintegration_9.png",
+            "/assets/work/projet_integration/projetintegration_10.png",
+            "/assets/work/projet_integration/projetintegration_11.png"
+        ],
+        live: "https://sqlinfo.cegepgranby.qc.ca/2135621/",
+        github: "https://github.com/ReneMarcellin007/ProjetIntegration.git",
+    },
 ];
 
 const Work = () => {
     const [project, setProject] = useState(projects[0]);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-    const handleSlideChange = (swiper) => {
-        // get current slide index
-        const currentIndex = swiper.activeIndex;
-        // update project state based on current slide index
-        setProject(projects[currentIndex]);
+    // Fonction pour changer de projet avec les boutons verts
+    const changeProject = (direction) => {
+        const currentIndex = projects.findIndex(p => p.num === project.num);
+        let newIndex;
+        
+        if (direction === 'next') {
+            newIndex = currentIndex + 1 >= projects.length ? 0 : currentIndex + 1;
+        } else {
+            newIndex = currentIndex - 1 < 0 ? projects.length - 1 : currentIndex - 1;
+        }
+        
+        setProject(projects[newIndex]);
+        setCurrentImageIndex(0);
     };
 
     return (
@@ -134,37 +159,65 @@ const Work = () => {
                         </div>
                     </div>
                     <div className="w-full xl:w-[50%]">
-                        <Swiper
-                            spaceBetween={30}
-                            slidesPerView={1}
-                            className="xl:h-[520px] mb-12"
-                            onSlideChange={handleSlideChange}
-                        >
-                            {projects.map((project, index) => {
-                                return (
-                                    <SwiperSlide key={index} className="w-full">
+                        {project.gallery ? (
+                            <Swiper
+                                spaceBetween={30}
+                                slidesPerView={1}
+                                className="xl:h-[520px] mb-12"
+                                autoplay={{
+                                    delay: 3000,
+                                    disableOnInteraction: false,
+                                }}
+                                navigation={{
+                                    clickable: true,
+                                }}
+                                modules={[Autoplay, Navigation]}
+                            >
+                                {project.gallery.map((image, index) => (
+                                    <SwiperSlide key={index} className="w-full cursor-pointer">
                                         <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
-                                            {/* overlay */}
                                             <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
-                                            {/* image */}
                                             <div className="relative w-full h-full">
                                                 <Image
-                                                    src={project.image}
+                                                    src={image}
                                                     fill
                                                     className="object-cover"
-                                                    alt=""
+                                                    alt={`Vue ${index + 1} du projet`}
                                                 />
                                             </div>
                                         </div>
                                     </SwiperSlide>
-                                );
-                            })}
-                            {/* slider buttons */}
-                            <WorkSliderBtns
-                                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
-                                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
-                            />
-                        </Swiper>
+                                ))}
+                            </Swiper>
+                        ) : (
+                            <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
+                                <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        src={project.image}
+                                        fill
+                                        className="object-cover"
+                                        alt=""
+                                    />
+                                </div>
+                            </div>
+                        )}
+                        
+                        {/* Boutons de navigation entre projets */}
+                        <div className="flex gap-2 justify-end mt-4">
+                            <button 
+                                onClick={() => changeProject('prev')}
+                                className="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
+                            >
+                                <BsArrowLeft />
+                            </button>
+                            <button 
+                                onClick={() => changeProject('next')}
+                                className="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
+                            >
+                                <BsArrowRight />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
