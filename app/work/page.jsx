@@ -52,7 +52,7 @@ const projects = [
         title: "project 3",
         description: "Projet d'intégration - Cégep de Granby",
         stack: [ { name: "ASP.NET" }, { name: "Vue.js" }, { name: "Bootstrap" }, { name: "SQL" }, { name: "C#" }],
-        image: "/assets/work/projet_integration/projetintegration_1.png",
+        image: "/assets/work/projet_integration/projetintegration_11.png",
         gallery: [
             "/assets/work/projet_integration/projetintegration_1.png",
             "/assets/work/projet_integration/projetintegration_2.png",
