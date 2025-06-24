@@ -56,10 +56,14 @@ const experience = {
     description:
         "J'ai acquis une solide expérience dans le développement web et la conception UI/UX, en travaillant sur divers projets qui ont renforcé mes compétences techniques et ma capacité à résoudre des problèmes complexes.",
     items: [
+        {
+            company: "Berry Global",
+            position: "Développeur Web Junior (Stage)",
+            duration: "Janvier 2025 - Mai 2025",
+        },
         /*{
           company: "Tech Solutions Inc.",
           position: "Full Stack Developer",
-          duration: "2022 - Present",
         },
         {
           company: "Web Design Studio",

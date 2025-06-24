@@ -26,6 +26,24 @@ import { Autoplay, Navigation } from 'swiper/modules';
 const projects = [
     {
         num: "01",
+        category: "Stage - Développement Web Junior",
+        title: "Stage chez Berry Global",
+        description:
+            "Développement de plateformes FoodSafety (rapports d'incidents liés à la sécurité alimentaire), ModifyDocument (formulaire pour justification de modification/archivage de documents). Finalisation de l'application console CardReaderConsoleNew (lecture de cartes à puce OMNIKEY 5427 G2 via PCSC-Sharp, lecture UID via APDU, serveur TCP pour transmission à l'app web). Développement de l'application web CardReaderApp en ASP.NET MVC (.NET Framework 4) avec Razor et client TCP pour identification utilisateur.",
+        stack: [{ name: "ASP.NET MVC" }, { name: ".NET 4" }, { name: "C#" }, { name: "Razor" }, { name: "TCP" }, { name: "PCSC-Sharp" }],
+        image: "/assets/work/stage/1.png",
+        gallery: [
+            "/assets/work/stage/1.png",
+            "/assets/work/stage/2.png",
+            "/assets/work/stage/3.png",
+            "/assets/work/stage/4.png",
+            "/assets/work/stage/5.png"
+        ],
+        live: "",
+        github: "",
+    },
+    {
+        num: "02",
         category: "frontend",
         title: "project 1",
         description:
@@ -36,18 +54,18 @@ const projects = [
         github: "",
     },
     {
-        num: "02",
+        num: "03",
         category: "Société Informatique",
         title: "project 2",
         description:
             "Création du site web d'une compagnie informatique fictive. Dans le but d'améliorer mes capacités",
-        stack: [{ name: "WordPress" }, { name: "ASP.NET" }, { name: "HTML 5" }],
+        stack: [{ name: "WordPress" }, { name: "HTML 5" }],
         image: "/assets/work/thumb12.png",
         live: "https://portfolio-renetchokomi.web.app/",
         github: "https://github.com/ReneMarcellin007/portfolio",
     },
     {
-        num: "03",
+        num: "04",
         category: "Projet d'intégration - Cégep de Granby",
         title: "project 3",
         description: "Projet d'intégration - Cégep de Granby",
